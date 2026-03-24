@@ -41,6 +41,7 @@ public class UserService {
 
     // Encrypt password
     user.setPassword(passwordEncoder.encode(user.getPassword()));
+    user.setOrganizationId(1L); // Set default organization ID (or handle as needed)
 
     // Save user
     return userRepository.save(user);
@@ -64,6 +65,11 @@ public class UserService {
    public User getUserById(Long id) {
     return userRepository.findById(id).orElse(null);
     }
+
+    public User getUserByEmail(String email) {
+    return userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+}
 
    public void deleteUser(Long id) {
     userRepository.deleteById(id);

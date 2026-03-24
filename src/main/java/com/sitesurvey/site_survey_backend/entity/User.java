@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -27,7 +28,8 @@ public class User {
 
     private String role;
 
-    private String organizationName; // direct organization name
+    // ✅ ADD THIS
+    private Long organizationId;
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -44,6 +46,7 @@ public class User {
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 
-    public String getOrganizationName() { return organizationName; }
-    public void setOrganizationName(String organizationName) { this.organizationName = organizationName; }
+    // ✅ NEW GETTER SETTER
+    public Long getOrganizationId() { return organizationId; }
+    public void setOrganizationId(Long organizationId) { this.organizationId = organizationId; }
 }
