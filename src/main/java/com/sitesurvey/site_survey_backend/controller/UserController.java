@@ -40,7 +40,8 @@ public class UserController {
 
         return Map.of(
                 "token", token,
-                "role", dbUser.getRole()
+                "role", dbUser.getRole(),
+                "email", dbUser.getEmail()
         );
     }
 
